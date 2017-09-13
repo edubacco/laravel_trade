@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Broker extends Model
 {
-
-    protected $table = 'broker';
-    public $timestamps = true;
-
     use SoftDeletes;
-
     protected $dates = ['deleted_at'];
+
+    protected $guarded = ['id'];
+
+    protected $visible = ['name'];
 
     public function prices()
     {
-        return $this->hasMany('App\Model\Price', 'price_id', 'id');
+        return $this->hasMany('App\Model\Price');
     }
 }
