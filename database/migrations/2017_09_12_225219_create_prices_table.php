@@ -17,8 +17,8 @@ class CreatePricesTable extends Migration {
 			$table->decimal('buy_price', 20, 10);
 			$table->decimal('sell_price', 20, 10);
 			$table->decimal('spot_price', 20, 10);
-			$table->datetimeTz('price_time');
-			$table->integer('broker_id')->unsigned();
+            $table->integer('broker_id')->unsigned();
+            $table->datetimeTz('price_time');
 			$table->foreign('broker_id')->references('id')->on('brokers');
 			$table->dateTimeTz('price_time_server');
 			$table->timestamps();

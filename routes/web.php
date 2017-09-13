@@ -12,7 +12,8 @@
 */
 
 Route::resource('broker', 'BrokerController');
-Route::get('price', 'PriceController@index');
+Route::get('prices', 'PriceController@index');
+Route::get('prices/test', 'PriceController@test');
 
 //Auth::routes();
 //Route::get('/logout', 'Auth\LoginController@logout');

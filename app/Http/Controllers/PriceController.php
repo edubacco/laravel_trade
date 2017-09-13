@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ReadPrice;
 use App\Model\Price;
 
 class PriceController extends Controller
@@ -14,7 +15,11 @@ class PriceController extends Controller
    */
   public function index()
   {
-    return view('price.index', ['prices' => Price::all()]);
+    return view('prices.index', ['prices' => Price::all()]);
   }
-  
+
+  public function test() {
+      $check = new ReadPrice();
+      $check->handle();
+  }
 }

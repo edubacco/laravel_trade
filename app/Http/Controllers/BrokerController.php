@@ -15,7 +15,7 @@ class BrokerController extends Controller
    */
   public function index()
   {
-    return view('broker.index', ['brokers' => Broker::all()]);
+    return view('brokers.index', ['brokers' => Broker::all()]);
   }
 
   /**
