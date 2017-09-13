@@ -22,8 +22,8 @@
             <div class="menu_section">
                 <ul class="nav side-menu">
                     <li><a><i class="fa fa-home"></i> Dashboard</a></li>
-                    <li><a href="{{ url('prices') }}"><i class="fa fa-usd"></i> Prices</a>
-                    </li>
+                    <li><a href="{{ url('prices') }}"><i class="fa fa-usd"></i> Prices</a></li>
+                    <li><a href="{{ url('broker') }}"><i class="fa fa-fighter-jet"></i> Broker</a></li>
                 </ul>
             </div>
         </div>
