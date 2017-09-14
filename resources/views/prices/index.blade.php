@@ -26,9 +26,9 @@
                                 @foreach($prices as $price)
                                     <tr>
                                         <td>{{ $price->price_time }}</td>
-                                        <td>{{ $broker->buy_price }}</td>
-                                        <td>{{ $broker->sell_price }}</td>
-                                        <td>{{ $broker->spot_price }}</td>
+                                        <td>{{ $price->buy_price }}</td>
+                                        <td>{{ $price->sell_price }}</td>
+                                        <td>{{ $price->spot_price }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

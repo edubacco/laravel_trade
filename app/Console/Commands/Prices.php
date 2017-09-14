@@ -1,41 +1,54 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Console\Commands;
 
-use App\Model\Broker;
-use App\Model\Price;
-use Coinbase\Wallet\Client;
+use Illuminate\Console\Command;
 use Coinbase\Wallet\Configuration;
-use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
+use Coinbase\Wallet\Client;
+use App\Model\Price;
+use App\Model\Broker;
 
-class ReadPrice implements ShouldQueue
+
+class Prices extends Command
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'prices:read';
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Read and store on db prices';
+
+    /**
+     * Conbase client
+     *
      * @var Client
      */
     protected $cbClient;
 
     /**
-     * Create a new job instance.
+     * Create a new command instance.
      *
      * @return void
      */
     public function __construct()
     {
+        parent::__construct();
+
         $configuration = Configuration::apiKey('', '');
         $this->cbClient = Client::create($configuration);
     }
 
     /**
-     * Execute the job.
+     * Execute the console command.
      *
-     * @return void
+     * @return mixed
      */
     public function handle()
     {
