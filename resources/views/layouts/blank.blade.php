@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Trader | Eduardo Silvi</title>
+        <title>Trade | Eduardo Silvi</title>
 
         <!-- Bootstrap -->
         <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
@@ -43,6 +43,8 @@
         <script src="{{ asset("js/bootstrap.min.js") }}"></script>
         <!-- Custom Theme Scripts -->
         <script src="{{ asset("js/gentelella.min.js") }}"></script>
+
+        <script src="{{ asset("js/Chart.bundle.min.js") }}"></script>
 
         @stack('scripts')
 

@@ -50,4 +50,12 @@ elixir(function(mix) {
 
     // Font awesome
     mix.copy('vendor/bower_components/gentelella/vendors/font-awesome/fonts/', 'public/fonts');
+
+
+    /**************/
+    /* Custom Edu */
+    /**************/
+
+    // charts.js
+    mix.copy('vendor/bower_components/gentelella/vendors/Chart.js/dist/Chart.bundle.min.js', 'public/js/Chart.bundle.min.js');
 });
