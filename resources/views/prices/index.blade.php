@@ -19,11 +19,11 @@
                         backgroundColor: "rgba(220,220,220,0.5)",
                         data: data_bitcoin
                     }
-/*                    , {
-                        label: 'Other',
-                        backgroundColor: "rgba(151,187,205,0.5)",
-                        data: data_altri
-                    }*/
+                        /*                    , {
+                                                label: 'Other',
+                                                backgroundColor: "rgba(151,187,205,0.5)",
+                                                data: data_altri
+                                            }*/
                     ]
                 };
 
@@ -43,6 +43,17 @@
                                         }
                                     }
                                 }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function(tooltipItem, data) {
+                                        date = new Date(tooltipItem.xLabel*1000);
+                                        dateString = date.toLocaleTimeString();
+                                        tooltipItem.xLabel = dateString;
+                                        return dateString + " - " + tooltipItem.yLabel;
+                                    }
+
+                                }
                             },
                             responsive: true,
                             title: {
