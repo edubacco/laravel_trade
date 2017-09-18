@@ -8,7 +8,7 @@
 
 
             <script>
-                var valute = ['Bitcoin', 'Altri'];
+                var valute = ['Bitcoin'];
                 var data_bitcoin = {!!  $bitcoin_graph !!};
                 var data_altri = {!! $altri_graph !!};
 
@@ -18,29 +18,35 @@
                         label: 'Bitcoin',
                         backgroundColor: "rgba(220,220,220,0.5)",
                         data: data_bitcoin
-                    }, {
+                    }
+/*                    , {
                         label: 'Other',
                         backgroundColor: "rgba(151,187,205,0.5)",
                         data: data_altri
-                    }]
+                    }*/
+                    ]
                 };
 
                 window.onload = function() {
                     var ctx = document.getElementById("prices_chart").getContext("2d");
                     window.myBar = new Chart(ctx, {
-                        type: 'line',
+                        type: 'scatter',
                         data: lineChartData,
                         options: {
-                            elements: {
-                                rectangle: {
-                                    borderWidth: 2,
-                                    borderColor: 'rgb(0, 255, 0)',
-                                    borderSkipped: 'bottom'
-                                }
+                            scales: {
+                                xAxes: [{
+                                    ticks: {
+                                        callback: function(label, index, labels) {
+                                            date = new Date(label*1000);
+                                            dateString = date.toDateString();
+                                            return dateString;
+                                        }
+                                    }
+                                }]
                             },
                             responsive: true,
                             title: {
-                                display: false,
+                                display: false
                             }
                         }
                     });

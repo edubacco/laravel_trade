@@ -25,7 +25,7 @@ class PriceController extends Controller
         $bitcoin_y = array_column($bitcoin_q, 'spot_price');
         foreach ($bitcoin_x as $k => $v) {
             $obj = [];
-            $obj['x'] = $v;
+            $obj['x'] = strtotime($v);
             $obj['y'] = $bitcoin_y[$k];
             $bitcoin[] = $obj;
         }
